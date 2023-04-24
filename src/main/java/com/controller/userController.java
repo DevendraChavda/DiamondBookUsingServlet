@@ -2,6 +2,7 @@ package com.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +25,8 @@ public class userController extends HttpServlet{
         } else if (pathInfo.equals("/destroy")) {
         	res.getWriter().write("destroy");
         } else if (pathInfo.equals("/create")) {
-        	res.getWriter().write("create");
+        	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/createUser");
+        	dispatcher.forward(req, res);
         } else if (pathInfo.equals("/update")) {
         	res.getWriter().write("update");
         } else if (pathInfo.equals("/sign-out")) {
